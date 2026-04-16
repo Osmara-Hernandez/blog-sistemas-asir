@@ -1,23 +1,56 @@
+
+---
+const { titulo = 'Blog de Sistemas' } = Astro.props;
+---
+
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+
+<html lang="es">
+
+  <head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Proyecto ASIR" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{titulo}</title>
+
+  </head>
+
+  <body>
+
+    <main class="contenido_principal">
+
+      <slot />
+
+    </main>
+
+  </body>
+
 </html>
 
+
+
+
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #222222;
+  }
+
+  .contenido_principal {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
 </style>
