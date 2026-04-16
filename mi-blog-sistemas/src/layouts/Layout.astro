@@ -1,10 +1,11 @@
 
 ---
 import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 
 const { titulo = 'Blog de Sistemas' } = Astro.props;
-
 ---
+
 
 <!doctype html>
 
@@ -14,7 +15,7 @@ const { titulo = 'Blog de Sistemas' } = Astro.props;
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Proyecto ASIR/>
+    <meta name="description" content="Proyecto ASIR"/>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
@@ -31,6 +32,8 @@ const { titulo = 'Blog de Sistemas' } = Astro.props;
       <slot />
 
     </main>
+
+    <Footer />
 
   </body>
 
