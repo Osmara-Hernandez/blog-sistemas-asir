@@ -1,11 +1,65 @@
+
 ---
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout titulo="Blog | Proyecto ASIR">
+<Layout titulo="Blog | Blog de Sistemas">
 
   <h1>Blog</h1>
 
-  <p>Añadir descripción</p>
+  <p>
+    En esta sección se mostrarán artículos relacionados con sistemas, redes,
+    servidores y seguridad informática.
+  </p>
+
+  <section class="lista_articulos">
+
+    <article class="tarjeta">
+
+      <h2>Artículo 1</h2>
+      <p>Artículo relacionado con administración de sistemas.</p>
+      <p><strong>Categoría:</strong> Sistemas</p>
+
+    </article>
+
+    <article class="tarjeta">
+
+      <h2>Artículo 2</h2>
+      <p>Artículo relacionado con redes.</p>
+      <p><strong>Categoría:</strong> Redes</p>
+
+    </article>
+
+    <article class="tarjeta">
+
+      <h2>Artículo 3</h2>
+      <p>Atículo relacionado con seguridad informática.</p>
+      <p><strong>Categoría:</strong> Seguridad</p>
+
+    </article>
+
+  </section>
 
 </Layout>
+
+<style>
+
+  .lista_articulos {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .tarjeta {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .tarjeta h2 {
+    margin-top: 0;
+  }
+
+</style>
+
