@@ -1,15 +1,69 @@
+
 ---
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout titulo="Inicio | Proyecto ASIR">
+<Layout titulo="Inicio | Blog de Sistemas">
 
-  <h1>Blog de Sistemas</h1>
+  <section class="presentacion">
 
-  <p>Bienvenido a ...</p>
+    <h1>Blog de Sistemas</h1>
 
-  <p>
-    Añadir luego una descripción
-  </p>
-  
+    <p>
+      Bienvenido a mi proyecto ASIR centrado en administración de sistemas,
+      redes, servidores y seguridad.
+    </p>
+
+  </section>
+
+  <section class="secciones">
+
+    <div class="tarjeta">
+
+      <h2>Linux</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+
+    </div>
+
+    <div class="tarjeta">
+
+      <h2>Servidores</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book..</p>
+
+    </div>
+
+    <div class="tarjeta">
+
+      <h2>Redes</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+
+    </div>
+
+  </section>
+
 </Layout>
+
+<style>
+
+  .presentacion {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .secciones {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .tarjeta {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .tarjeta h2 {
+    margin-top: 0;
+  }
+  
+</style>
