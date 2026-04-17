@@ -12,42 +12,88 @@ import Layout from '../layouts/Layout.astro';
     servidores y seguridad informática.
   </p>
 
+  <section class="filtros">
+
+    <button class="boton_filtro" data-categoria="todos">Todos</button>
+    <button class="boton_filtro" data-categoria="Sistemas">Sistemas</button>
+    <button class="boton_filtro" data-categoria="Redes">Redes</button>
+    <button class="boton_filtro" data-categoria="Seguridad">Seguridad</button>
+
+  </section>
+
   <section class="lista_articulos">
 
-    <article class="tarjeta">
-
+    <article class="tarjeta" data-categoria="Sistemas">
       <h2>Artículo 1</h2>
-      <p>Artículo relacionado con administración de sistemas.</p>
+      <p>Contenido de ejemplo para un artículo relacionado con administración de sistemas.</p>
       <p><strong>Categoría:</strong> Sistemas</p>
 
     </article>
 
-    <article class="tarjeta">
+    <article class="tarjeta" data-categoria="Redes">
 
       <h2>Artículo 2</h2>
-      <p>Artículo relacionado con redes.</p>
+      <p>Contenido de ejemplo para un artículo relacionado con redes y conectividad.</p>
       <p><strong>Categoría:</strong> Redes</p>
 
     </article>
 
-    <article class="tarjeta">
+    <article class="tarjeta" data-categoria="Seguridad">
 
       <h2>Artículo 3</h2>
-      <p>Atículo relacionado con seguridad informática.</p>
+      <p>Contenido de ejemplo para un artículo relacionado con seguridad informática.</p>
       <p><strong>Categoría:</strong> Seguridad</p>
 
     </article>
 
   </section>
 
+  <script is:inline>
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const botonesFiltro = document.querySelectorAll('.boton_filtro');
+      const tarjetas = document.querySelectorAll('.tarjeta');
+
+      botonesFiltro.forEach((boton) => {
+        boton.addEventListener('click', () => {
+          const categoria = boton.dataset.categoria;
+
+          tarjetas.forEach((tarjeta) => {
+            if (categoria === 'todos' || tarjeta.dataset.categoria === categoria) {
+              tarjeta.style.display = 'block';
+            } else {
+              tarjeta.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+
+  </script>
+
 </Layout>
 
 <style>
 
+  .filtros {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin: 1.5rem 0;
+  }
+
+  .boton_filtro {
+    padding: 0.6rem 1rem;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+  }
+
   .lista_articulos {
     display: grid;
     gap: 1rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 
   .tarjeta {
@@ -60,6 +106,5 @@ import Layout from '../layouts/Layout.astro';
   .tarjeta h2 {
     margin-top: 0;
   }
-
+  
 </style>
-
