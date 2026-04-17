@@ -6,7 +6,6 @@ import Footer from '../components/Footer.astro';
 const { titulo = 'Blog de Sistemas' } = Astro.props;
 ---
 
-
 <!doctype html>
 
 <html lang="es">
@@ -15,7 +14,7 @@ const { titulo = 'Blog de Sistemas' } = Astro.props;
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Proyecto ASIR"/>
+    <meta name="description" content="Proyecto ASIR" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
@@ -34,6 +33,34 @@ const { titulo = 'Blog de Sistemas' } = Astro.props;
     </main>
 
     <Footer />
+
+    <script is:inline>
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const botonModo = document.getElementById('boton_modo');
+
+        if (!botonModo) return;
+
+        const modoGuardado = localStorage.getItem('modo');
+
+        if (modoGuardado === 'oscuro') {
+          document.body.classList.add('modo_oscuro');
+        }
+
+        botonModo.addEventListener('click', () => {
+          document.body.classList.toggle('modo_oscuro');
+
+          if (document.body.classList.contains('modo_oscuro')) {
+            localStorage.setItem('modo', 'oscuro');
+          } else {
+            localStorage.setItem('modo', 'claro');
+          }
+
+        });
+
+      });
+
+    </script>
 
   </body>
 
@@ -55,6 +82,24 @@ const { titulo = 'Blog de Sistemas' } = Astro.props;
     max-width: 900px;
     margin: 0 auto;
     padding: 2rem;
+  }
+
+  body.modo_oscuro {
+    background-color: #121212;
+    color: #f1f1f1;
+  }
+
+  body.modo_oscuro .tarjeta {
+    background-color: #1e1e1e;
+    border: 1px solid #444444;
+    color: #f1f1f1;
+  }
+
+  body.modo_oscuro input,
+  body.modo_oscuro textarea {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+    border: 1px solid #555555;
   }
   
 </style>

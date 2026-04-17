@@ -1,10 +1,18 @@
 
 <nav class="barra_navegacion">
 
-  <a href="/">Inicio</a>
-  <a href="/blog">Blog</a>
-  <a href="/proyecto">Proyecto</a>
-  <a href="/contacto">Contacto</a>
+  <div class="enlaces">
+
+    <a href="/">Inicio</a>
+    <a href="/blog">Blog</a>
+    <a href="/proyecto">Proyecto</a>
+    <a href="/contacto">Contacto</a>
+
+  </div>
+
+  <button id="boton_modo" class="boton_modo" type="button">
+    Modo oscuro
+  </button>
 
 </nav>
 
@@ -13,6 +21,12 @@
   .barra_navegacion {
     background-color: #222222;
     padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .enlaces {
     display: flex;
     gap: 1rem;
   }
@@ -25,6 +39,15 @@
 
   .barra_navegacion a:hover {
     text-decoration: underline;
+  }
+
+  .boton_modo {
+    padding: 0.5rem 1rem;
+    border: 1px solid white;
+    border-radius: 6px;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
   }
   
 </style>
