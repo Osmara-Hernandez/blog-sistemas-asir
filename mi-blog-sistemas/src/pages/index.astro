@@ -3,7 +3,7 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout titulo="Inicio | Blog de Sistemas">
+<Layout titulo="Inicio | Proyecto ASIR">
 
   <section class="presentacion">
 
@@ -41,6 +41,48 @@ import Layout from '../layouts/Layout.astro';
 
   </section>
 
+   <section class="noticias">
+
+  <h2>Noticias Tecnológicas</h2>
+
+  <div id="contenedor_noticias" class="lista_noticias">
+
+    <p>Cargando noticias...</p>
+
+  </div>
+
+  </section>
+
+<script is:inline>
+
+  document.addEventListener('DOMContentLoaded', async () => {
+    const contenedor = document.getElementById('contenedor_noticias');
+
+    try {
+      const respuesta = await fetch('https://gnews.io/api/v4/search?q=ciberseguridad&lang=es&max=3&token=beffec353a60d4ae561c3ec4d4c7233a');
+      const datos = await respuesta.json();
+
+      contenedor.innerHTML = '';
+
+      datos.articles.forEach((noticia) => {
+        const tarjeta = document.createElement('div');
+        tarjeta.classList.add('tarjeta');
+
+        tarjeta.innerHTML = `
+          <h3>${noticia.title}</h3>
+          <p>${noticia.description}</p>
+          <a href="${noticia.url}" target="_blank" rel="noopener noreferrer">Leer más</a>
+        `;
+
+        contenedor.appendChild(tarjeta);
+      });
+    } catch (error) {
+      contenedor.innerHTML = '<p>No se pudieron cargar las noticias en este momento.</p>';
+    }
+  });
+
+</script>
+
 </Layout>
 
 <style>
@@ -62,8 +104,21 @@ import Layout from '../layouts/Layout.astro';
     padding: 1rem;
   }
 
-  .tarjeta h2 {
+  .tarjeta h2,
+  .tarjeta h3 {
     margin-top: 0;
   }
-  
+
+  .noticias {
+    margin-top: 3rem;
+  }
+
+  .lista_noticias {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
 </style>
+
+
