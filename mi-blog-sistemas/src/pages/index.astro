@@ -59,7 +59,7 @@ import Layout from '../layouts/Layout.astro';
     const contenedor = document.getElementById('contenedor_noticias');
 
     try {
-      const respuesta = await fetch('https://gnews.io/api/v4/search?q=ciberseguridad&lang=es&max=3&token=beffec353a60d4ae561c3ec4d4c7233a');
+      const respuesta = await fetch('/noticias.php');
       const datos = await respuesta.json();
 
       contenedor.innerHTML = '';
