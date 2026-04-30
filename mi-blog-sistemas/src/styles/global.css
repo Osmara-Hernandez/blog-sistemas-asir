@@ -1,0 +1,36 @@
+:root {
+  --color-fondo: #f1f5f9;
+  --color-texto: #0f172a;
+  --color-secundario: #475569;
+  --color-tarjeta: #ffffff;
+  --color-borde: #e2e8f0;
+  --color-primario: #2563eb;
+  --color-titulo: #ffffff;
+  --color-subtitulo: #e2e8f0;
+  --color-etiqueta: #60a5fa;
+  --color-noticias: #f8fafc;
+}
+
+body.modo_oscuro {
+  --color-fondo: #0f172a;
+  --color-texto: #e2e8f0;
+  --color-secundario: #94a3b8;
+  --color-tarjeta: #1e293b;
+  --color-borde: #334155;
+  --color-primario: #38bdf8;
+  --color-noticias: #1e293b;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+body {
+  transition: background 0.25s ease, color 0.25s ease;
+}

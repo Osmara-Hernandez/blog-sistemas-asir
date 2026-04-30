@@ -1,85 +1,196 @@
-
 ---
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout titulo="Contacto | Blog de Sistemas">
 
-  <h1>Contacto</h1>
+  <main class="contenedor-contacto">
 
-  <section class="bloque">
+    <!-- CABECERA -->
 
-    <p>
-      Enviar datos de formulario a MariaDB.
-    </p>
+    <div class="cabecera-contacto">
 
-  </section>
+      <span class="etiqueta">Contacto</span>
 
-  <section class="bloque">
+      <h1>Formulario de contacto</h1>
 
-    <form class="formulario_contacto" method="POST" action="/procesar.php">
+      <p>
+        Envía un mensaje que será procesado mediante PHP y almacenado
+        en una base de datos MariaDB en tiempo real.
+      </p>
 
-      <div class="campo_formulario">
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" />
-      </div>
+    </div>
 
-      <div class="campo_formulario">
-        <label for="correo">Correo electrónico</label>
-        <input type="email" id="correo" name="correo" placeholder="Escribe tu correo" />
-      </div>
+    <!-- TARJETA FORMULARIO -->
 
-      <div class="campo_formulario">
-        <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje"></textarea>
-      </div>
+    <section class="tarjeta-contacto">
 
-      <button type="submit" class="boton_enviar">Enviar</button>
+      <form class="formulario_contacto" method="POST" action="/procesar.php">
 
-    </form>
+        <div class="campo_formulario">
 
-  </section>
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+
+        </div>
+
+        <div class="campo_formulario">
+
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="correo" placeholder="tu@email.com" required />
+
+        </div>
+
+        <div class="campo_formulario">
+
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+
+        </div>
+
+        <button type="submit" class="boton_enviar">
+          Enviar mensaje
+        </button>
+
+      </form>
+
+    </section>
+
+  </main>
 
 </Layout>
 
 <style>
 
-  .bloque {
-    margin-bottom: 2rem;
-  }
+.contenedor-contacto {
 
-  .formulario_contacto {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
 
-  .campo_formulario {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
+}
 
-  .campo_formulario input,
-  .campo_formulario textarea {
-    padding: 0.75rem;
-    border: 1px solid #cccccc;
-    border-radius: 6px;
-    font-family: Arial, sans-serif;
-  }
 
-  .boton_enviar {
-    width: fit-content;
-    padding: 0.75rem 1.2rem;
-    border: none;
-    border-radius: 6px;
-    background-color: #222222;
-    color: white;
-    cursor: pointer;
-  }
+.cabecera-contacto {
 
-  .boton_enviar:hover {
-    opacity: 0.9;
+  max-width: 600px;
+  margin-bottom: 2.5rem;
+
+}
+
+.etiqueta {
+
+  color: var(--color-primario);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+}
+
+.cabecera-contacto h1 {
+
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  margin: 0.5rem 0 1rem;
+  color: var(--color-texto);
+
+}
+
+.cabecera-contacto p {
+
+  color: var(--color-secundario);
+  line-height: 1.7;
+
+}
+
+/* TARJETA */
+
+.tarjeta-contacto {
+
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+
+}
+
+/* FORMULARIO */
+
+.formulario_contacto {
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+}
+
+.campo_formulario {
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+}
+
+.campo_formulario label {
+
+  font-weight: bold;
+  color: var(--color-texto);
+
+}
+
+.campo_formulario input,
+.campo_formulario textarea {
+
+  padding: 0.85rem;
+  border-radius: 10px;
+  border: 1px solid var(--color-borde);
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.campo_formulario input:focus,
+.campo_formulario textarea:focus {
+
+  outline: none;
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* BOTÓN */
+
+.boton_enviar {
+
+  margin-top: 1rem;
+  padding: 0.9rem 1.4rem;
+  border-radius: 12px;
+  border: none;
+  background: var(--color-primario);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+}
+
+.boton_enviar:hover {
+
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+
+  .tarjeta-contacto {
+    padding: 1.5rem;
   }
-  
+}
+
+
 </style>

@@ -1,52 +1,97 @@
-
 ---
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout titulo="Blog | Proyecto ASIR">
 
-  <h1>Blog</h1>
+  <main class="contenido-blog">
 
-  <p>
-    En esta sección se mostrarán artículos relacionados con sistemas, redes,
-    servidores y seguridad informática.
-  </p>
+    <div class="cabecera-blog">
 
-  <section class="filtros">
+      <span class="etiqueta">Artículos</span>
 
-    <button class="boton_filtro" data-categoria="todos">Todos</button>
-    <button class="boton_filtro" data-categoria="Sistemas">Sistemas</button>
-    <button class="boton_filtro" data-categoria="Redes">Redes</button>
-    <button class="boton_filtro" data-categoria="Seguridad">Seguridad</button>
+      <h1>Blog</h1>
 
-  </section>
+      <p>
+        En esta sección se muestran artículos relacionados con sistemas, conexión con APIs,
+        y formularios.
+      </p>
 
-  <section class="lista_articulos">
+    </div>
 
-    <article class="tarjeta" data-categoria="Sistemas">
-      <h2>Artículo 1</h2>
-      <p>Contenido de ejemplo para un artículo relacionado con administración de sistemas.</p>
-      <p><strong>Categoría:</strong> Sistemas</p>
+    <!-- Filtros -->
+    
+    <section class="filtros">
 
-    </article>
+      <button class="boton_filtro" data-categoria="todos">Todos</button>
+      <button class="boton_filtro" data-categoria="Sistemas">Sistemas</button>
+      <button class="boton_filtro" data-categoria="API">APIs</button>
+      <button class="boton_filtro" data-categoria="Backend">Bases de Datos</button>
 
-    <article class="tarjeta" data-categoria="Redes">
+    </section>
 
-      <h2>Artículo 2</h2>
-      <p>Contenido de ejemplo para un artículo relacionado con redes y conectividad.</p>
-      <p><strong>Categoría:</strong> Redes</p>
+    <section class="lista_articulos">
 
-    </article>
 
-    <article class="tarjeta" data-categoria="Seguridad">
+      <!-- Articulo 01 -->
 
-      <h2>Artículo 3</h2>
-      <p>Contenido de ejemplo para un artículo relacionado con seguridad informática.</p>
-      <p><strong>Categoría:</strong> Seguridad</p>
+      <article class="tarjeta" data-categoria="Sistemas">
 
-    </article>
+        <h2>Administración de sistemas Linux</h2>
 
-  </section>
+        <p>
+          Configuración de servidor Ubuntu con Apache y despliegue de una web en entorno real..
+        </p>
+
+        <p><strong>Categoría:</strong> Sistemas</p>
+
+        <a href="/articulo1" class="enlace-articulo">Leer más</a>
+
+      </article>
+
+      <!-- Articulo 02 -->
+
+      <article class="tarjeta" data-categoria="API">
+
+        <h2>Conexión con API Gnews</h2>
+
+        <p>
+          Consumo de la API GNews mediante PHP y Curl para evitar problemas de CORS
+    y mostrar noticias dinámicas en la web.
+        </p>
+
+        <p><strong>Categoría:</strong> APIs</p>
+
+        <a href="/articulo2" class="enlace-articulo">Leer más</a>
+
+      </article>
+
+
+      <!-- Articulo 03 -->
+
+      <article class="tarjeta" data-categoria="Backend">
+
+        <h2>Formulario conectado a base de datos</h2>
+
+        <p>
+          Envío de datos mediante formulario web procesado con PHP
+    y almacenado en MariaDB en un entorno real.
+        </p>
+
+        <p><strong>Categoría:</strong> Backend</p>
+
+        <a href="/articulo3" class="enlace-articulo">Leer más</a>
+
+      </article>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- Filtro según categorías-->
+
 
   <script is:inline>
 
@@ -59,11 +104,10 @@ import Layout from '../layouts/Layout.astro';
           const categoria = boton.dataset.categoria;
 
           tarjetas.forEach((tarjeta) => {
-            if (categoria === 'todos' || tarjeta.dataset.categoria === categoria) {
-              tarjeta.style.display = 'block';
-            } else {
-              tarjeta.style.display = 'none';
-            }
+            tarjeta.style.display =
+              categoria === 'todos' || tarjeta.dataset.categoria === categoria
+                ? 'block'
+                : 'none';
           });
         });
       });
@@ -73,38 +117,173 @@ import Layout from '../layouts/Layout.astro';
 
 </Layout>
 
+
+
 <style>
 
-  .filtros {
-    display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    margin: 1.5rem 0;
+
+.contenido-blog {
+
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+
+}
+
+.cabecera-blog {
+
+  max-width: 720px;
+  margin-bottom: 2rem;
+
+}
+
+.etiqueta {
+
+  color: var(--color-primario);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+}
+
+.cabecera-blog h1 {
+
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  margin: 0.5rem 0 1rem;
+  color: var(--color-texto);
+
+}
+
+.cabecera-blog p {
+
+  color: var(--color-secundario);
+  line-height: 1.7;
+
+}
+
+.filtros {
+
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+
+}
+
+.boton_filtro {
+
+  padding: 0.75rem 1.1rem;
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+  background: var(--color-tarjeta);
+  color: var(--color-texto);
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.25s ease;
+
+}
+
+.boton_filtro:hover {
+
+  border-color: var(--color-primario);
+  color: var(--color-primario);
+  transform: translateY(-2px);
+
+}
+
+.lista_articulos {
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+
+}
+
+.tarjeta {
+
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: 18px;
+  padding: 1.5rem;
+  transition: all 0.25s ease;
+
+}
+
+.tarjeta:hover {
+
+  transform: translateY(-4px);
+  border-color: var(--color-primario);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+
+}
+
+.tarjeta h2 {
+
+  margin-top: 0;
+  color: var(--color-texto);
+
+}
+
+
+.tarjeta p {
+
+  color: var(--color-secundario);
+  line-height: 1.6;
+
+}
+
+
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+  .contenido-blog {
+    padding: 3rem 1.5rem;
   }
 
-  .boton_filtro {
-    padding: 0.6rem 1rem;
-    border: 1px solid #cccccc;
-    border-radius: 6px;
-    background-color: white;
-    cursor: pointer;
-  }
 
   .lista_articulos {
-    display: grid;
-    gap: 1rem;
-    margin-top: 1rem;
+
+    grid-template-columns: 1fr;
   }
+}
+
+
+@media (max-width: 600px) {
+
+  .contenido-blog {
+    padding: 2.5rem 1rem;
+  }
+
+
+  .cabecera-blog h1 {
+
+    font-size: 2.4rem;
+  }
+
+
+  .filtros {
+
+    flex-direction: column;
+  }
+
+
+  .boton_filtro {
+
+    width: 100%;
+    text-align: center;
+  }
+
 
   .tarjeta {
-    background-color: #ffffff;
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-    padding: 1rem;
-  }
 
-  .tarjeta h2 {
-    margin-top: 0;
+    padding: 1.25rem;
   }
+}
+
+
 
 </style>

@@ -1,62 +1,316 @@
-
 ---
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout titulo="Proyecto | Blog de Sistemas">
 
-  <h1>Proyecto</h1>
+  <main class="contenedor-proyecto">
 
-  <section class="bloque">
+    <!-- CABECERA -->
 
-    <p>
-      Introducción
-    </p>
+    <div class="cabecera-proyecto">
 
-    <p>
-      Añadir descripción
-    </p>
+      <span class="etiqueta">Proyecto ASIR</span>
 
-  </section>
+      <h1>Desarrollo y despliegue de una aplicación web completa</h1>
 
-  <section class="bloque">
+      <p>
+        Este proyecto consiste en el desarrollo de una aplicación web completa,
+        incluyendo frontend, backend y base de datos, desplegada en un servidor
+        Ubuntu en entorno real mediante máquina virtual.
+      </p>
 
-    <h2>Tecnologías utilizadas</h2>
+    <a href="https://github.com/Osmara-Hernandez/blog-sistemas-asir"
+        target="_blank"
+        class="boton-github">
+        Ver código en GitHub
+    </a>
 
-    <ul>
-      <li>Astro</li>
-      <li>JavaScript</li>
-      <li>Git y GitHub</li>
-      <li>Ubuntu</li>
-      <li>XAMPP</li>
-      <li>MariaDB</li>
-    </ul>
+    </div>
 
-  </section>
+    <!-- OBJETIVOS -->
 
-  <section class="bloque">
+    <section class="bloque-proyecto">
 
-    <h2>Objetivos principales</h2>
+      <h2>Objetivos del proyecto</h2>
 
-    <ul>
-      <li>Construir una web con varias páginas</li>
-      <li>Publicar contenido técnico relacionado con sistemas</li>
-      <li>Desplegar la web en un servidor</li>
-      <li>Conectar un formulario a una base de datos</li>
-    </ul>
+      <p>
+        El objetivo principal ha sido desarrollar una web funcional que simule un entorno
+        real de producción, integrando distintas tecnologías vistas durante el ciclo ASIR.
+      </p>
 
-  </section>
+      <ul>
+        <li>Desarrollar una web con Astro</li>
+        <li>Implementar backend con PHP</li>
+        <li>Gestionar datos con MariaDB</li>
+        <li>Desplegar en servidor Ubuntu</li>
+        <li>Permitir acceso desde red local</li>
+      </ul>
+
+    </section>
+
+    <!-- TECNOLOGÍAS -->
+
+    <section class="bloque-proyecto">
+
+      <h2>Tecnologías utilizadas</h2>
+
+      <div class="grid-tecnologias">
+
+        <div class="tarjeta-tec">Astro (Frontend)</div>
+        <div class="tarjeta-tec">PHP (Backend)</div>
+        <div class="tarjeta-tec">MariaDB (Base de datos)</div>
+        <div class="tarjeta-tec">Apache / XAMPP</div>
+        <div class="tarjeta-tec">Ubuntu Server</div>
+        <div class="tarjeta-tec">API GNews</div>
+
+      </div>
+
+    </section>
+
+    <!-- ARQUITECTURA -->
+
+    <section class="bloque-proyecto">
+
+      <h2>Arquitectura del sistema</h2>
+
+      <p>
+        El sistema sigue una arquitectura cliente-servidor donde el navegador realiza
+        peticiones al servidor Apache, que ejecuta scripts PHP para gestionar la lógica
+        y comunicarse con la base de datos o servicios externos.
+      </p>
+
+      <div class="arquitectura">
+        Usuario → Navegador → Apache → PHP → Base de datos / API
+      </div>
+
+    </section>
+
+    <!-- FUNCIONALIDADES -->
+
+    <section class="bloque-proyecto">
+
+      <h2>Funcionalidades implementadas</h2>
+
+      <ul>
+
+        <li>Blog con artículos técnicos</li>
+        <li>Consumo de API externa (GNews)</li>
+        <li>Formulario conectado a base de datos</li>
+        <li>Modo oscuro</li>
+        <li>Diseño responsive</li>
+
+      </ul>
+
+    </section>
+
+    <!-- DESPLIEGUE -->
+
+    <section class="bloque-proyecto">
+
+      <h2>Despliegue del sistema</h2>
+
+      <p>
+        La aplicación se ha desplegado en un servidor Ubuntu dentro de una máquina virtual.
+        Se ha configurado la red en modo puente para permitir el acceso desde otros
+        dispositivos mediante una dirección IP local.
+      </p>
+
+      <p>
+        El servidor utiliza Apache (XAMPP) para servir la web, permitiendo la ejecución
+        de código PHP y la conexión con la base de datos MariaDB.
+      </p>
+
+    </section>
+
+    <!-- SEGURIDAD -->
+
+    <section class="bloque-proyecto">
+
+      <h2>Seguridad y configuración</h2>
+
+      <ul>
+
+        <li>Firewall configurado con UFW</li>
+        <li>Certificado HTTPS autofirmado</li>
+        <li>Gestión de permisos en Linux</li>
+        <li>Control de accesos al servidor</li>
+
+      </ul>
+
+    </section>
+
+    <!-- CONCLUSIÓN -->
+
+    <section class="bloque-proyecto">
+
+      <h2>Conclusión</h2>
+
+      <p>
+        Este proyecto demuestra la integración de múltiples tecnologías para crear una
+        aplicación web funcional en un entorno real. Se han aplicado conocimientos de
+        administración de sistemas, redes y desarrollo web, replicando un escenario
+        profesional de despliegue.
+      </p>
+
+    </section>
+
+  </main>
 
 </Layout>
 
 <style>
 
-  .bloque {
-    margin-bottom: 2rem;
-  }
 
-  h2 {
-    margin-bottom: 0.5rem;
+.contenedor-proyecto {
+
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+
+}
+
+.cabecera-proyecto {
+
+  max-width: 700px;
+  margin-bottom: 3rem;
+
+}
+
+.etiqueta {
+
+  color: var(--color-primario);
+  font-weight: bold;
+  text-transform: uppercase;
+
+}
+
+.cabecera-proyecto h1 {
+
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin: 0.5rem 0 1rem;
+
+}
+
+.cabecera-proyecto p {
+
+  color: var(--color-secundario);
+  line-height: 1.7;
+
+}
+
+
+.boton-github {
+
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.9rem 1.5rem;
+  background: #2563eb;          
+  color: #ffffff;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid #30363d;
+  transition: all 0.25s ease;
+}
+
+
+.boton-github:hover {
+
+  background: #161b22;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+
+}
+
+.bloque-proyecto {
+
+  margin-bottom: 3rem;
+
+}
+
+.bloque-proyecto h2 {
+
+  margin-bottom: 1rem;
+
+}
+
+.bloque-proyecto p,
+.bloque-proyecto li {
+
+  color: var(--color-secundario);
+  line-height: 1.7;
+
+}
+
+.grid-tecnologias {
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+
+}
+
+.tarjeta-tec {
+
+  padding: 1rem;
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.25s ease; 
+
+}
+
+.tarjeta-tec:hover {
+
+  transform: translateY(-4px);
+  border-color: var(--color-primario);
+  box-shadow: 0 12px 25px rgba(15, 23, 42, 0.08);
+  background: linear-gradient(
+    145deg,
+    var(--color-tarjeta),
+    rgba(37, 99, 235, 0.05)
+  );
+
+}
+
+.arquitectura {
+
+  margin: 1.5rem auto;       
+  padding: 1rem 1.5rem;
+  background: var(--color-tarjeta);
+  border-radius: 12px;
+  border: 1px solid var(--color-borde);
+  font-weight: bold;
+  text-align: center;
+  width: fit-content;        
+}
+
+
+.arquitectura:hover {
+
+  transform: translateY(-4px);
+  border-color: var(--color-primario);
+  box-shadow: 0 12px 25px rgba(15, 23, 42, 0.08);
+  background: linear-gradient(
+    145deg,
+    var(--color-tarjeta),
+    rgba(37, 99, 235, 0.05)
+    );
+
+}
+
+
+/*Responsive*/ 
+
+@media (max-width: 800px) {
+
+  .grid-tecnologias {
+    grid-template-columns: 1fr;
   }
-  
+}
+
 </style>

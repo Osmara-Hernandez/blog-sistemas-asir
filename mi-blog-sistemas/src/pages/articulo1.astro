@@ -1,0 +1,214 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout titulo="Configuración de servidor Ubuntu para despliegue web">
+
+  <main class="contenedor-articulo">
+
+    <span class="categoria">Sistemas</span>
+
+    <h1>Configuración de servidor Ubuntu para despliegue web</h1>
+
+    <p class="fecha">15 abril 2026</p>
+
+    <!-- Imagen principal -->
+    
+    <img src="/img/principal.png" alt="Servidor" class="imagen-articulo" />
+
+    <p>
+      En este proyecto se ha configurado un servidor Ubuntu dentro de una máquina virtual
+      con el objetivo de desplegar una página web funcional. Este entorno simula un sistema
+      real de producción, integrando tanto frontend como backend.
+    </p>
+
+    <h2>Creación de la máquina virtual</h2>
+
+    <p>
+      Se ha utilizado VirtualBox para crear una máquina virtual con Ubuntu como sistema operativo.
+      Esta máquina actúa como servidor independiente dentro de la red local.
+    </p>
+
+    <!-- FOTO VM -->
+    
+    <img src="/img/vm.png" alt="Máquina virtual Ubuntu en VirtualBox" class="imagen-articulo" />
+
+    <p>
+      El uso de virtualización permite trabajar en un entorno aislado, facilitando pruebas sin afectar
+      al sistema principal.
+    </p>
+
+    <h2>Configuración de red en modo puente</h2>
+
+    <p>
+      Para permitir el acceso desde otros dispositivos, la máquina virtual se configuró en modo puente.
+      De esta forma, el servidor obtiene una dirección IP dentro de la misma red local.
+    </p>
+
+    <!-- FOTO RED -->
+    
+    <img src="/img/red.png" alt="Configuración de red en modo puente" class="imagen-articulo" />
+
+    <p>
+      Esto permite acceder a la web desde otros equipos mediante una URL como:
+    </p>
+
+    <p><code>http://192.168.x.x</code></p>
+
+    <!-- FOTO ACCESO -->
+    
+    <img src="/img/acceso.png" alt="Acceso a la web desde navegador" class="imagen-articulo" />
+
+    <h2>Instalación del servidor web</h2>
+
+    <p>
+      Se ha instalado XAMPP, que incluye Apache, PHP y MariaDB. Esto permite disponer de un entorno
+      completo para el desarrollo web.
+    </p>
+
+    <!-- FOTO XAMPP -->
+  
+    <img src="/img/xampp.png" alt="Panel de XAMPP con Apache activo" class="imagen-articulo" />
+
+    <p>
+      Una vez iniciado Apache, se comprobó el correcto funcionamiento accediendo desde el navegador
+      a la dirección IP del servidor.
+    </p>
+
+    <h2>Despliegue de la aplicación</h2>
+
+    <p>
+      La web desarrollada con Astro se ha compilado mediante el comando de build y posteriormente
+      se ha copiado al directorio del servidor:
+    </p>
+
+    <p><code>/opt/lampp/htdocs</code></p>
+
+
+    <!-- FOTO HTDOCS -->
+  
+    <img src="/img/htdocs.png" alt="Directorio htdocs con la web desplegada" class="imagen-articulo" />
+
+    <p>
+      Desde este punto, la aplicación es accesible desde cualquier dispositivo conectado a la red local.
+    </p>
+
+    <h2>Configuración de seguridad básica</h2>
+
+    <p>
+      Para mejorar la seguridad del sistema se han aplicado varias medidas:
+    </p>
+
+    <ul>
+
+      <li>Uso de firewall con UFW</li>
+      <li>Configuración de permisos en el sistema Linux</li>
+      <li>Uso de HTTPS mediante certificado autofirmado</li>
+
+    </ul>
+
+    <!-- FOTO UFW -->
+  
+    <img src="/img/ufw.png" alt="Estado del firewall UFW" class="imagen-articulo" />
+
+    <p>
+      Aunque se trata de un entorno de pruebas, estas medidas permiten simular un entorno real de producción.
+    </p>
+
+    <h2>Conclusión</h2>
+
+    <p>
+      La configuración del servidor ha permitido desplegar una aplicación web completa en un entorno real,
+      integrando frontend, backend y base de datos. Este proceso refleja el funcionamiento de un sistema
+      profesional y demuestra la capacidad de administrar servicios en un entorno Linux.
+    </p>
+
+    <a href="/blog" class="volver">← Volver al blog</a>
+
+  </main>
+
+
+</Layout>
+
+
+<style>
+.contenedor-articulo {
+
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+
+}
+
+.categoria {
+
+  color: var(--color-primario);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+}
+
+.fecha {
+
+  color: var(--color-secundario);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+
+}
+
+.imagen-articulo {
+
+  width: 100%;
+  border-radius: 16px;
+  margin: 2rem 0;
+
+}
+
+.contenedor-articulo h1 {
+
+  font-size: 2.5rem;
+  margin: 1rem 0;
+  color: var(--color-texto);
+
+}
+
+.contenedor-articulo h2 {
+
+  margin-top: 2rem;
+  color: var(--color-texto);
+
+}
+
+.contenedor-articulo p,
+.contenedor-articulo li {
+
+  line-height: 1.7;
+  color: var(--color-secundario);
+
+}
+
+.contenedor-articulo code {
+
+  background: rgba(0,0,0,0.05);
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+
+}
+
+.volver {
+
+  display: inline-block;
+  margin-top: 3rem;
+  color: var(--color-primario);
+  font-weight: bold;
+  text-decoration: none;
+
+}
+
+.volver:hover {
+
+  text-decoration: underline;
+  
+}
+</style>

@@ -1,0 +1,200 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout titulo="Formulario conectado a base de datos">
+
+  <main class="contenedor-articulo">
+
+    <span class="categoria">Backend</span>
+
+    <h1>Formulario conectado a base de datos con PHP y MariaDB</h1>
+
+    <p class="fecha">17 abril 2026</p>
+
+    <!-- Imagen inicial -->
+    
+    <img src="/img/formulario.png" alt="Formulario web" class="imagen-articulo" />
+
+    <p>
+      En este proyecto se ha implementado un formulario de contacto funcional que permite
+      enviar datos desde el frontend y almacenarlos en una base de datos MariaDB.
+      Este proceso simula el funcionamiento real de aplicaciones web dinámicas.
+    </p>
+
+    <h2>Diseño del formulario</h2>
+
+    <p>
+      El formulario se ha desarrollado en HTML y permite al usuario introducir
+      datos como nombre, correo electrónico y mensaje.
+    </p>
+
+    <!-- FOTO FORMULARIO -->
+    
+    <img src="/img/formulario_web.png" alt="Formulario de contacto en la web" class="imagen-articulo" />
+
+    <p>
+      Estos datos son enviados mediante el método POST a un archivo PHP encargado
+      de procesarlos.
+    </p>
+
+    <h2>Procesamiento con PHP</h2>
+
+    <p>
+      Se ha creado un archivo <code>procesar.php</code> que recibe los datos del formulario
+      y los prepara para su almacenamiento en la base de datos.
+    </p>
+
+    <!-- FOTO PHP -->
+    
+    <img src="/img/procesar_php.png" alt="Código PHP del formulario" class="imagen-articulo" />
+
+    <p>
+      PHP actúa como intermediario entre el usuario y la base de datos, validando
+      y gestionando la información recibida.
+    </p>
+
+    <h2>Creación de la base de datos</h2>
+
+    <p>
+      Se ha utilizado MariaDB para almacenar los mensajes enviados por los usuarios.
+      Se creó una base de datos con una tabla que incluye los campos necesarios:
+      nombre, email y mensaje.
+    </p>
+
+    <!-- FOTO BASE DE DATOS -->
+  
+    <img src="/img/base_datos.png" alt="Tabla en MariaDB" class="imagen-articulo" />
+
+    <p>
+      Esta estructura permite guardar de forma organizada la información recibida
+      desde el formulario.
+    </p>
+
+    <h2>Inserción de datos</h2>
+
+    <p>
+      Cuando el usuario envía el formulario, PHP ejecuta una consulta SQL que inserta
+      los datos en la base de datos.
+    </p>
+
+    <!-- FOTO RESULTADO -->
+    
+    <img src="/img/mensaje_guardado.png" alt="Datos almacenados en base de datos" class="imagen-articulo" />
+
+    <p>
+      De esta forma se comprueba que la información se almacena correctamente.
+    </p>
+
+    <h2>Conclusión</h2>
+
+    <p>
+      La integración del formulario con PHP y MariaDB permite gestionar datos de
+      usuarios de forma dinámica. Este proceso representa una funcionalidad esencial
+      en aplicaciones web reales, combinando frontend y backend en un mismo sistema.
+    </p>
+
+    <a href="/blog" class="volver">← Volver al blog</a>
+
+  </main>
+
+</Layout>
+
+<style>
+
+.contenedor-articulo {
+
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+
+}
+
+.categoria {
+
+  color: var(--color-primario);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+}
+
+.fecha {
+
+  color: var(--color-secundario);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+
+}
+
+.imagen-articulo {
+
+  width: 100%;
+  border-radius: 16px;
+  margin: 2rem 0;
+
+}
+
+.contenedor-articulo h1 {
+
+  font-size: 2.5rem;
+  margin: 1rem 0;
+
+}
+
+.contenedor-articulo h2 {
+
+  margin-top: 2rem;
+
+}
+
+.contenedor-articulo p {
+
+  line-height: 1.7;
+  color: var(--color-secundario);
+
+}
+
+.contenedor-articulo ul {
+
+  margin-top: 1rem;
+  color: var(--color-secundario);
+
+}
+
+.boton-formulario {
+
+  display: inline-block;
+  margin-top: 2rem;
+  background: var(--color-primario);
+  color: #fff;
+  padding: 0.9rem 1.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+
+}
+
+.boton-formulario:hover {
+
+  opacity: 0.9;
+
+}
+
+.volver {
+
+  display: block;
+  margin-top: 2rem;
+  color: var(--color-primario);
+  text-decoration: none;
+  font-weight: bold;
+
+}
+
+.volver:hover {
+
+  text-decoration: underline;
+
+}
+
+</style>

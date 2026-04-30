@@ -1,0 +1,189 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout titulo="Consumo de API GNews con PHP">
+
+  <main class="contenedor-articulo">
+
+    <span class="categoria">api</span>
+
+    <h1>Consumo de API GNews con PHP</h1>
+
+    <p class="fecha">16 abril 2026</p>
+
+    <!-- Imagen inicial -->
+    
+    <img src="/img/api.png" alt="Consumo de API" class="imagen-articulo" />
+
+    <p>
+      En este proyecto se ha integrado una API externa para mostrar noticias
+      tecnológicas en la web. Para ello se ha utilizado la API de GNews,
+      gestionando la comunicación mediante PHP para evitar problemas de CORS
+      y mejorar la seguridad.
+    </p>
+
+    <h2>¿Qué es una API?</h2>
+
+    <p>
+      Una API (Application Programming Interface) permite que diferentes
+      aplicaciones se comuniquen entre sí. En este caso, se utiliza para
+      obtener noticias en tiempo real desde un servicio externo.
+    </p>
+
+    <h2>Problema del acceso directo desde JavaScript</h2>
+
+    <p>
+      Inicialmente se intentó consumir la API directamente desde el frontend,
+      pero esto generaba errores debido a las políticas de seguridad del navegador (CORS).
+    </p>
+
+    <p>
+      Por este motivo, se decidió utilizar PHP como intermediario.
+    </p>
+
+    <!-- FOTO ERROR / CONCEPTO -->
+    
+    <img src="/img/cors.png" alt="Error CORS en navegador" class="imagen-articulo" />
+
+    <h2>Uso de PHP como intermediario</h2>
+
+    <p>
+      Se creó un archivo <code>noticias.php</code> que realiza la petición a la API
+      utilizando cURL. Este archivo se encarga de recibir los datos y devolverlos
+      en formato JSON al frontend.
+    </p>
+
+    <!-- FOTO PHP -->
+    
+    <img src="/img/php_api.png" alt="Código PHP consumiendo API" class="imagen-articulo" />
+
+    <p>
+      De esta forma, el navegador ya no accede directamente a la API externa,
+      evitando errores de seguridad.
+    </p>
+
+    <h2>Procesamiento de los datos</h2>
+
+    <p>
+      Una vez recibida la respuesta en formato JSON, los datos se procesan en
+      JavaScript para mostrarlos dinámicamente en la página web.
+    </p>
+
+    <!-- FOTO JSON -->
+    
+    <img src="/img/json.png" alt="Respuesta JSON de la API" class="imagen-articulo" />
+
+    <p>
+      Cada noticia se representa mediante una tarjeta que incluye título,
+      descripción y enlace a la fuente original.
+    </p>
+
+    <h2>Integración en la web</h2>
+
+    <p>
+      Las noticias se cargan automáticamente al acceder a la página mediante
+      una llamada <code>fetch()</code> al archivo PHP.
+    </p>
+
+    <!-- FOTO RESULTADO -->
+    
+    <img src="/img/noticias.png" alt="Noticias mostradas en la web" class="imagen-articulo" />
+
+    <p>
+      Esto permite ofrecer contenido actualizado sin necesidad de modificar
+      manualmente la web.
+    </p>
+
+    <h2>Conclusión</h2>
+
+    <p>
+      La integración de la API GNews ha permitido añadir contenido dinámico
+      a la web, mejorando la funcionalidad del proyecto. Además, el uso de PHP
+      como intermediario ha solucionado problemas de seguridad y ha permitido
+      una arquitectura más profesional.
+    </p>
+
+    <a href="/blog" class="volver">← Volver al blog</a>
+
+  </main>
+
+</Layout>
+
+<style>
+
+.contenedor-articulo {
+
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+
+}
+
+.categoria {
+
+  color: var(--color-primario);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+}
+
+.fecha {
+
+  color: var(--color-secundario);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+
+}
+
+.imagen-articulo {
+
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin: 2rem 0;
+
+}
+
+.contenedor-articulo h1 {
+
+  font-size: 2.5rem;
+  margin: 1rem 0;
+  color: var(--color-texto);
+
+}
+
+.contenedor-articulo h2 {
+
+  margin-top: 2rem;
+  color: var(--color-texto);
+
+}
+
+.contenedor-articulo p,
+.contenedor-articulo li {
+
+  line-height: 1.7;
+  color: var(--color-secundario);
+
+}
+
+.volver {
+
+  display: inline-block;
+  margin-top: 3rem;
+  color: var(--color-primario);
+  font-weight: bold;
+  text-decoration: none;
+
+}
+
+.volver:hover {
+
+  text-decoration: underline;
+
+}
+
+</style>

@@ -1,123 +1,665 @@
-
 ---
 import Layout from '../layouts/Layout.astro';
 ---
 
+
 <Layout titulo="Inicio | Proyecto ASIR">
 
+
+  <!-- HERO -->
+  
   <section class="presentacion">
 
-    <h1>Blog de Sistemas</h1>
+    <div class="contenido-hero">
 
-    <p>
-      Bienvenido a mi proyecto ASIR centrado en administración de sistemas,
-      redes, servidores y seguridad.
-    </p>
+      <span class="etiqueta">Proyecto Final ASIR</span>
+
+      <h1>Blog de Sistemas y Redes</h1>
+
+      <p>
+        Web desarrollada con Astro y desplegada en un servidor Ubuntu con Apache,
+        PHP, MariaDB y consumo de API externa.
+      </p>
+
+      <div class="acciones-presentacion">
+        <a href="/blog" class="boton-principal">Ver Blog</a>
+        <a href="/proyecto" class="boton-secundario">Ver Proyecto</a>
+      </div>
+
+    </div>
 
   </section>
+
+
+
+
+  <!-- TARJETAS -->
+
+
 
   <section class="secciones">
 
-    <div class="tarjeta">
+    <!-- TARJETA 01 -->
 
-      <h2>Linux</h2>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    <article class="tarjeta tarjeta-articulo">
 
+      <img src="/img/principal.png" alt="Sistema Linux" />
+
+      <span class="categoria-articulo">Linux</span>
+
+      <h2>Administración de sistemas Linux</h2>
+
+      <p class="fecha-articulo">15 abril 2026</p>
+
+      <p>
+        Configuración de servidor Ubuntu con Apache y despliegue de una web en entorno real.
+      </p>
+
+      <a href="/articulo1" class="enlace-articulo">Leer más</a>
+
+    </article>
+
+
+    <!-- TARJETA 02 -->
+    
+
+    <article class="tarjeta tarjeta-articulo">
+
+      <img src="/img/api.png" alt="Servidor Apache" />
+
+      <span class="categoria-articulo">APIs</span>
+
+      <h2>Conexión con API Gnews</h2>
+
+      <p class="fecha-articulo">16 abril 2026</p>
+
+      <p>
+        Consumo de la API GNews mediante PHP y Curl para evitar problemas de CORS y mostrar noticias dinámicas en la web.
+      </p>
+
+      <a href="/articulo2" class="enlace-articulo">Leer más</a>
+
+    </article>
+
+
+    <!-- TARJETA 03 -->
+
+    <article class="tarjeta tarjeta-articulo">
+
+      <img src="/img/formulario.png" alt="Red informática" />
+
+      <span class="categoria-articulo">Backend</span>
+
+      <h2>Formulario conectado a base de datos</h2>
+
+      <p class="fecha-articulo">17 abril 2026</p>
+
+      <p>
+        Envío de datos mediante formulario web procesado con PHP y almacenado en MariaDB en un entorno real.
+      </p>
+
+      <a href="/articulo3" class="enlace-articulo">Leer más</a>
+
+    </article>
+
+    
+
+  </section>
+
+
+
+
+  <!-- NOTICIAS -->
+
+
+  <section class="noticias">
+
+    <div class="cabecera-seccion">
+      <span class="etiqueta">Actualidad</span>
+      <h2>Noticias Tecnológicas</h2>
+      <p>
+        Noticias obtenidas mediante API externa usando PHP como intermediario.
+      </p>
     </div>
 
-    <div class="tarjeta">
-
-      <h2>Servidores</h2>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book..</p>
-
-    </div>
-
-    <div class="tarjeta">
-
-      <h2>Redes</h2>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-
+    <div id="contenedor_noticias" class="lista_noticias">
+      <p>Cargando noticias...</p>
     </div>
 
   </section>
 
-   <section class="noticias">
 
-  <h2>Noticias Tecnológicas</h2>
+  <!-- BANNER -->
 
-  <div id="contenedor_noticias" class="lista_noticias">
 
-    <p>Cargando noticias...</p>
+<section class="banner-final">
+
+  <div class="banner-contenido">
+
+    <span class="etiqueta">Interacción</span>
+
+    <h2>Formulario conectado a base de datos</h2>
+
+    <p>
+      Puedes enviar un mensaje desde el formulario de contacto.
+      Los datos se procesan con PHP y se almacenan en MariaDB en tiempo real.
+    </p>
 
   </div>
 
-  </section>
+  <a href="/contacto" class="boton-banner">Ir al formulario</a>
 
-<script is:inline>
+</section>
 
-  document.addEventListener('DOMContentLoaded', async () => {
-    const contenedor = document.getElementById('contenedor_noticias');
 
-    try {
-      const respuesta = await fetch('/noticias.php');
-      const datos = await respuesta.json();
 
-      contenedor.innerHTML = '';
+  <!-- SCRIPT NOTICIAS -->
 
-      datos.articles.forEach((noticia) => {
-        const tarjeta = document.createElement('div');
-        tarjeta.classList.add('tarjeta');
 
-        tarjeta.innerHTML = `
-          <h3>${noticia.title}</h3>
-          <p>${noticia.description}</p>
-          <a href="${noticia.url}" target="_blank" rel="noopener noreferrer">Leer más</a>
-        `;
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const contenedor = document.getElementById('contenedor_noticias');
 
-        contenedor.appendChild(tarjeta);
-      });
-    } catch (error) {
-      contenedor.innerHTML = '<p>No se pudieron cargar las noticias en este momento.</p>';
-    }
-  });
+      try {
 
-</script>
+        // MODO SERVIDOR
+        // const respuesta = await fetch('/noticias.php');
+        // const datos = await respuesta.json();
+
+        // MODO DISEÑO
+
+        const datos = {
+          articles: [
+            {
+              title: 'Servidor Apache en Ubuntu',
+              description: 'Despliegue completo con Apache y XAMPP.',
+              url: '#'
+            },
+            {
+              title: 'Base de datos MariaDB',
+              description: 'Almacenamiento de formularios en base de datos.',
+              url: '#'
+            },
+            {
+              title: 'Configuración de red',
+              description: 'Acceso desde otros equipos en red local.',
+              url: '#'
+            }
+          ]
+        };
+
+        contenedor.innerHTML = '';
+
+        datos.articles.forEach((noticia) => {
+          const tarjeta = document.createElement('div');
+          tarjeta.classList.add('tarjeta-noticia');
+
+          tarjeta.innerHTML = `
+            <h3>${noticia.title}</h3>
+            <p>${noticia.description}</p>
+            <a href="${noticia.url}">Leer más</a>
+          `;
+
+          contenedor.appendChild(tarjeta);
+        });
+
+      } catch (error) {
+        contenedor.innerHTML = '<p>Error cargando noticias</p>';
+      }
+    });
+
+  </script>
 
 </Layout>
 
-<style>
 
-  .presentacion {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
 
-  .secciones {
-    display: grid;
-    gap: 1rem;
-  }
+<style is:global>
 
-  .tarjeta {
-    background-color: #ffffff;
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-    padding: 1rem;
-  }
+section {
 
-  .tarjeta h2,
-  .tarjeta h3 {
-    margin-top: 0;
-  }
+  padding: 4rem 0;
 
-  .noticias {
-    margin-top: 3rem;
-  }
+}
 
+/* HERO */
+
+
+.presentacion {
+  
+  position: relative;
+  box-sizing: border-box;
+  width: 100vw;
+  min-height: 420px;
+  margin-top: 0;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 3rem 10%;
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(15, 23, 42, 0.05),
+      rgba(15, 23, 42, 0.8)
+    ),
+    url("/img/servidor.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+}
+
+.contenido-hero {
+
+  max-width: 520px;
+  margin-right: 3%;
+  text-align: left; 
+  color: var(--color-titulo);
+
+}
+
+.contenido-hero h1 {
+
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1;
+  margin-top: 1rem;
+  color: var(--color-titulo);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+
+}
+
+.contenido-hero p {
+
+  margin-top: 1.5rem;
+  color: var(--color-subtitulo);
+  font-size: 1.1rem;
+  line-height: 1.7;
+
+}
+
+
+.contenido-hero .etiqueta {
+
+  color: var(--color-etiqueta);
+  letter-spacing: 0.08em;
+  font-weight: bold;
+
+}
+
+
+
+.acciones-presentacion {
+
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  
+}
+
+
+.boton-principal {
+
+  background: var(--color-primario);
+  color: var(--color-titulo);
+  padding: 0.9rem 1.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.25s ease;
+  border: 1px solid #93c5fd;
+
+}
+
+.boton-principal:hover {
+
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+
+}
+
+.boton-secundario {
+
+  border: 1px solid #93c5fd;
+  color: var(--color-titulo);
+  padding: 0.9rem 1.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  background: var(--color-primario);
+  transition: all 0.25s ease;
+
+}
+
+.boton-secundario:hover {
+
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #60a5fa;
+  transform: translateY(-2px);
+
+}
+
+
+/* TARJETAS BLOG */
+
+
+.secciones {
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.3rem;
+
+}
+
+.tarjeta {
+
+  background: var(--color-tarjeta);
+  border: 2px solid var(--color-borde);
+  border-radius: 15px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  
+
+}
+
+.tarjeta:hover {
+
+  transform: translateY(-6px);
+  border-color: var(--color-primario);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+
+}
+
+.tarjeta img {
+
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  
+
+}
+
+.tarjeta h2 {
+
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  
+
+}
+
+.fecha-articulo {
+
+  font-size: 0.85rem;
+  color: var(--color-secundario);
+  margin-bottom: 0.8rem;
+
+}
+
+.enlace-articulo {
+
+  margin-top: 1.3rem;
+  color: var(--color-primario);
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+
+}
+
+.enlace-articulo:hover {
+
+  text-decoration: underline;
+
+}
+
+
+/* NOTICIAS */
+
+
+.noticias {
+
+  max-width: 1100px;
+  margin: 3rem auto 0;
+  padding: 4rem 2.5rem;
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: 28px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+  
+}
+
+.cabecera-seccion {
+
+  max-width: 720px;
+  margin-bottom: 2rem;
+
+}
+
+.cabecera-seccion .etiqueta {
+
+  color: var(--color-primario);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+}
+
+.cabecera-seccion h2 {
+
+  margin: 0.5rem 0;
+  font-size: 2.2rem;
+  color: var(--color-texto);
+
+}
+
+.cabecera-seccion p {
+
+  color: var(--color-secundario);
+  line-height: 1.7;
+
+}
+
+#contenedor_noticias {
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+  margin-top: 2.5rem;
+
+}
+
+#contenedor_noticias div {
+
+  background: var(--color-noticias);
+  border: 1px solid #dbe3ee;
+  border-radius: 18px;
+  padding: 1.5rem;
+  min-height: 170px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  transition: all 0.25s ease;
+
+}
+
+#contenedor_noticias div:hover {
+
+  transform: translateY(-4px);
+  border-color: var(--color-primario);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+
+}
+
+#contenedor_noticias h3 {
+
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--color-texto);
+  font-size: 1.1rem;
+
+}
+
+#contenedor_noticias p {
+
+  color: var(--color-secundario);
+  line-height: 1.6;
+
+}
+
+#contenedor_noticias a {
+
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--color-primario);
+  font-weight: bold;
+  text-decoration: none;
+
+}
+
+#contenedor_noticias a:hover {
+
+  text-decoration: underline;
+}
+
+
+/* BANNER  */
+
+.banner-final {
+
+  margin-top: 6rem;
+  padding: 2.5rem;
+  border-radius: 24px;
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #1e3a8a
+
+  );
+  color: var(--color-titulo);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+
+}
+
+.banner-contenido {
+
+  max-width: 600px;
+
+}
+
+.banner-final h2 {
+
+  margin: 0.5rem 0;
+  font-size: 1.8rem;
+
+}
+
+.banner-final p {
+
+  color: var(--color-subtitulo);
+  line-height: 1.6;
+
+}
+
+.boton-banner {
+
+  background: var(--color-titulo);
+  color: #1e3a8a;
+  padding: 1rem 1.6rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.25s ease;
+
+}
+
+
+.boton-banner:hover {
+
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+}
+
+
+.secciones,
+.noticias,
+.banner-final {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Modo oscuro */
+
+
+body.modo_oscuro #contenedor_noticias div {
+
+  background: #1e293b;
+  border-color: #334155;
+
+}
+
+body.modo_oscuro #contenedor_noticias h3 {
+
+  color: #f8fafc;
+
+}
+
+
+body.modo_oscuro #contenedor_noticias p {
+
+  color: #cbd5e1;
+
+}
+
+body.modo_oscuro .noticias {
+
+  background: #1e293b;
+  border-color: #334155;
+
+}
+
+body.modo_oscuro .banner-final {
+
+  background: linear-gradient(
+    135deg,
+    #1e3a8a,
+    #020617
+  );
+
+}
+
+
+
+/* RESPONSIVE*/
+
+@media (max-width: 900px) {
+
+  .presentacion,
+  .secciones,
   .lista_noticias {
-    display: grid;
-    gap: 1rem;
-    margin-top: 1rem;
+    grid-template-columns: 1fr;
+
   }
+
+  .banner-final {
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    
+  }
+
+}
 
 </style>
 
