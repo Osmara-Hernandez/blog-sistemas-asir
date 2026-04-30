@@ -163,30 +163,30 @@ import Layout from '../layouts/Layout.astro';
       try {
 
         // MODO SERVIDOR
-        // const respuesta = await fetch('/noticias.php');
-        // const datos = await respuesta.json();
+        const respuesta = await fetch('/noticias.php');
+        const datos = await respuesta.json();
 
         // MODO DISEÑO
 
-        const datos = {
-          articles: [
-            {
-              title: 'Servidor Apache en Ubuntu',
-              description: 'Despliegue completo con Apache y XAMPP.',
-              url: '#'
-            },
-            {
-              title: 'Base de datos MariaDB',
-              description: 'Almacenamiento de formularios en base de datos.',
-              url: '#'
-            },
-            {
-              title: 'Configuración de red',
-              description: 'Acceso desde otros equipos en red local.',
-              url: '#'
-            }
-          ]
-        };
+        //const datos = {
+          //articles: [
+            //{
+              //title: 'Servidor Apache en Ubuntu',
+              //description: 'Despliegue completo con Apache y XAMPP.',
+              //url: '#'
+            //},
+            //{
+              //title: 'Base de datos MariaDB',
+              //description: 'Almacenamiento de formularios en base de datos.',
+              //url: '#'
+            //},
+            //{
+              //title: 'Configuración de red',
+              //description: 'Acceso desde otros equipos en red local.',
+              //url: '#'
+            //}
+          //]
+        //};
 
         contenedor.innerHTML = '';
 
