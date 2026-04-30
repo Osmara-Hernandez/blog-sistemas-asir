@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="es" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><meta name="description" content="Proyecto ASIR"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" href="/favicon.ico"><meta name="generator" content="Astro v6.1.7"><title>Formulario conectado a base de datos</title><style>:root{--color-fondo: #f1f5f9;--color-texto: #0f172a;--color-secundario: #475569;--color-tarjeta: #ffffff;--color-borde: #e2e8f0;--color-primario: #2563eb;--color-titulo: #ffffff;--color-subtitulo: #e2e8f0;--color-etiqueta: #60a5fa;--color-noticias: #f8fafc}body.modo_oscuro{--color-fondo: #0f172a;--color-texto: #e2e8f0;--color-secundario: #94a3b8;--color-tarjeta: #1e293b;--color-borde: #334155;--color-primario: #38bdf8;--color-noticias: #1e293b}html,body{margin:0;width:100%;min-height:100%;font-family:system-ui,-apple-system,sans-serif;background:var(--color-fondo);color:var(--color-texto)}body{transition:background .25s ease,color .25s ease}header[data-astro-cid-d6vcou2g]{width:100%;background:#0f172a;border-bottom:1px solid rgba(96,165,250,.2);border-bottom:1px solid var(--color-borde);position:relative;z-index:1000}nav[data-astro-cid-d6vcou2g]{max-width:1200px;margin:0 auto;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center}nav[data-astro-cid-d6vcou2g] a[data-astro-cid-d6vcou2g]{color:#e2e8f0;text-decoration:none;font-weight:700;margin-right:1.2rem;transition:color .25s ease}nav[data-astro-cid-d6vcou2g] a[data-astro-cid-d6vcou2g]:hover{color:#60a5fa}nav[data-astro-cid-d6vcou2g] button[data-astro-cid-d6vcou2g]{background:#ffffff0f;color:#fff;border:1px solid rgba(147,197,253,.4);padding:.5rem .9rem;border-radius:10px;font-weight:700;cursor:pointer;transition:all .25s ease}nav[data-astro-cid-d6vcou2g] button[data-astro-cid-d6vcou2g]:hover{background:#60a5fa33;transform:translateY(-2px)}body.modo_oscuro .cabecera[data-astro-cid-d6vcou2g]{background:#020617}.footer[data-astro-cid-k2f5zb5c]{margin-top:4rem;padding:2rem;background:#0f172a;border-top:1px solid var(--color-borde);text-align:center;color:var(--color-secundario);font-weight:700;font-size:1rem}html,body{margin:0;width:100%;min-height:100%;font-family:Arial,sans-serif;background-color:#f1f5f9;color:#0f172a}.contenido_principal[data-astro-cid-sckkx6r4]{max-width:none;margin:0;padding:0}body.modo_oscuro{background-color:#0f172a;color:#e2e8f0}body.modo_oscuro .tarjeta[data-astro-cid-sckkx6r4]{background:#1e293b;border:1px solid #334155}body.modo_oscuro .tarjeta-noticia[data-astro-cid-sckkx6r4]{background:#1e293b}body.modo_oscuro input[data-astro-cid-sckkx6r4],body.modo_oscuro textarea[data-astro-cid-sckkx6r4]{background-color:#1e1e1e;color:#f1f1f1;border:1px solid #555555}
+.contenedor-articulo[data-astro-cid-j4h3hk6l]{max-width:800px;margin:0 auto;padding:4rem 2rem}.categoria[data-astro-cid-j4h3hk6l]{color:var(--color-primario);font-weight:700;text-transform:uppercase;letter-spacing:.08em}.fecha[data-astro-cid-j4h3hk6l]{color:var(--color-secundario);font-size:.9rem;margin-bottom:1.5rem}.imagen-articulo[data-astro-cid-j4h3hk6l]{width:100%;border-radius:16px;margin:2rem 0}.contenedor-articulo[data-astro-cid-j4h3hk6l] h1[data-astro-cid-j4h3hk6l]{font-size:2.5rem;margin:1rem 0}.contenedor-articulo[data-astro-cid-j4h3hk6l] h2[data-astro-cid-j4h3hk6l]{margin-top:2rem}.contenedor-articulo[data-astro-cid-j4h3hk6l] p[data-astro-cid-j4h3hk6l]{line-height:1.7;color:var(--color-secundario)}.contenedor-articulo[data-astro-cid-j4h3hk6l] ul[data-astro-cid-j4h3hk6l]{margin-top:1rem;color:var(--color-secundario)}.boton-formulario[data-astro-cid-j4h3hk6l]{display:inline-block;margin-top:2rem;background:var(--color-primario);color:#fff;padding:.9rem 1.5rem;border-radius:12px;text-decoration:none;font-weight:700}.boton-formulario[data-astro-cid-j4h3hk6l]:hover{opacity:.9}.volver[data-astro-cid-j4h3hk6l]{display:block;margin-top:2rem;color:var(--color-primario);text-decoration:none;font-weight:700}.volver[data-astro-cid-j4h3hk6l]:hover{text-decoration:underline}
+</style></head> <body data-astro-cid-sckkx6r4> <header data-astro-cid-d6vcou2g> <nav class="barra_navegacion" data-astro-cid-d6vcou2g> <div class="enlaces" data-astro-cid-d6vcou2g> <a href="/" data-astro-cid-d6vcou2g>Inicio</a> <a href="/blog" data-astro-cid-d6vcou2g>Blog</a> <a href="/proyecto" data-astro-cid-d6vcou2g>Proyecto</a> <a href="/contacto" data-astro-cid-d6vcou2g>Contacto</a> </div> <button id="boton_modo" class="boton_modo" type="button" data-astro-cid-d6vcou2g>
+Modo oscuro
+</button> </nav> </header> <main class="contenido_principal" data-astro-cid-sckkx6r4>  <main class="contenedor-articulo" data-astro-cid-j4h3hk6l> <span class="categoria" data-astro-cid-j4h3hk6l>Backend</span> <h1 data-astro-cid-j4h3hk6l>Formulario conectado a base de datos con PHP y MariaDB</h1> <p class="fecha" data-astro-cid-j4h3hk6l>17 abril 2026</p> <!-- Imagen inicial --> <img src="/img/formulario.png" alt="Formulario web" class="imagen-articulo" data-astro-cid-j4h3hk6l> <p data-astro-cid-j4h3hk6l>
+En este proyecto se ha implementado un formulario de contacto funcional que permite
+      enviar datos desde el frontend y almacenarlos en una base de datos MariaDB.
+      Este proceso simula el funcionamiento real de aplicaciones web dinámicas.
+</p> <h2 data-astro-cid-j4h3hk6l>Diseño del formulario</h2> <p data-astro-cid-j4h3hk6l>
+El formulario se ha desarrollado en HTML y permite al usuario introducir
+      datos como nombre, correo electrónico y mensaje.
+</p> <!-- FOTO FORMULARIO --> <img src="/img/formulario_web.png" alt="Formulario de contacto en la web" class="imagen-articulo" data-astro-cid-j4h3hk6l> <p data-astro-cid-j4h3hk6l>
+Estos datos son enviados mediante el método POST a un archivo PHP encargado
+      de procesarlos.
+</p> <h2 data-astro-cid-j4h3hk6l>Procesamiento con PHP</h2> <p data-astro-cid-j4h3hk6l>
+Se ha creado un archivo <code data-astro-cid-j4h3hk6l>procesar.php</code> que recibe los datos del formulario
+      y los prepara para su almacenamiento en la base de datos.
+</p> <!-- FOTO PHP --> <img src="/img/procesar_php.png" alt="Código PHP del formulario" class="imagen-articulo" data-astro-cid-j4h3hk6l> <p data-astro-cid-j4h3hk6l>
+PHP actúa como intermediario entre el usuario y la base de datos, validando
+      y gestionando la información recibida.
+</p> <h2 data-astro-cid-j4h3hk6l>Creación de la base de datos</h2> <p data-astro-cid-j4h3hk6l>
+Se ha utilizado MariaDB para almacenar los mensajes enviados por los usuarios.
+      Se creó una base de datos con una tabla que incluye los campos necesarios:
+      nombre, email y mensaje.
+</p> <!-- FOTO BASE DE DATOS --> <img src="/img/base_datos.png" alt="Tabla en MariaDB" class="imagen-articulo" data-astro-cid-j4h3hk6l> <p data-astro-cid-j4h3hk6l>
+Esta estructura permite guardar de forma organizada la información recibida
+      desde el formulario.
+</p> <h2 data-astro-cid-j4h3hk6l>Inserción de datos</h2> <p data-astro-cid-j4h3hk6l>
+Cuando el usuario envía el formulario, PHP ejecuta una consulta SQL que inserta
+      los datos en la base de datos.
+</p> <!-- FOTO RESULTADO --> <img src="/img/mensaje_guardado.png" alt="Datos almacenados en base de datos" class="imagen-articulo" data-astro-cid-j4h3hk6l> <p data-astro-cid-j4h3hk6l>
+De esta forma se comprueba que la información se almacena correctamente.
+</p> <h2 data-astro-cid-j4h3hk6l>Conclusión</h2> <p data-astro-cid-j4h3hk6l>
+La integración del formulario con PHP y MariaDB permite gestionar datos de
+      usuarios de forma dinámica. Este proceso representa una funcionalidad esencial
+      en aplicaciones web reales, combinando frontend y backend en un mismo sistema.
+</p> <a href="/blog" class="volver" data-astro-cid-j4h3hk6l>← Volver al blog</a> </main>  </main> <footer class="footer" data-astro-cid-k2f5zb5c> <p data-astro-cid-k2f5zb5c>© 2026 Blog de Sistemas - Proyecto ASIR</p> </footer> <script>
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const botonModo = document.getElementById("boton_modo");
+
+        if (!botonModo) return;
+
+        const modoGuardado = localStorage.getItem("modo");
+
+        if (modoGuardado === "oscuro") {
+          document.body.classList.add("modo_oscuro");
+        }
+
+        botonModo.addEventListener("click", () => {
+          document.body.classList.toggle("modo_oscuro");
+
+          if (document.body.classList.contains("modo_oscuro")) {
+            localStorage.setItem("modo", "oscuro");
+          } else {
+            localStorage.setItem("modo", "claro");
+          }
+
+        });
+
+      });
+
+    </script> </body> </html> 
