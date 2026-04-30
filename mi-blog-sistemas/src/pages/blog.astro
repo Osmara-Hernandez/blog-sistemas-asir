@@ -95,19 +95,19 @@ import Layout from '../layouts/Layout.astro';
 
   <script is:inline>
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const botonesFiltro = document.querySelectorAll('.boton_filtro');
-      const tarjetas = document.querySelectorAll('.tarjeta');
+    document.addEventListener("DOMContentLoaded", () => {
+      const botonesFiltro = document.querySelectorAll(".boton_filtro");
+      const tarjetas = document.querySelectorAll(".tarjeta");
 
       botonesFiltro.forEach((boton) => {
-        boton.addEventListener('click', () => {
+        boton.addEventListener("click", () => {
           const categoria = boton.dataset.categoria;
 
           tarjetas.forEach((tarjeta) => {
             tarjeta.style.display =
-              categoria === 'todos' || tarjeta.dataset.categoria === categoria
-                ? 'block'
-                : 'none';
+              categoria === "todos" || tarjeta.dataset.categoria === categoria
+                ? "block"
+                : "none";
           });
         });
       });

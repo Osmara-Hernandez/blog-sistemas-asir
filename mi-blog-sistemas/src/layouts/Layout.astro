@@ -38,24 +38,24 @@ const { titulo = 'Blog de Sistemas' } = Astro.props;
 
     <script is:inline>
 
-      document.addEventListener('DOMContentLoaded', () => {
-        const botonModo = document.getElementById('boton_modo');
+      document.addEventListener("DOMContentLoaded", () => {
+        const botonModo = document.getElementById("boton_modo");
 
         if (!botonModo) return;
 
-        const modoGuardado = localStorage.getItem('modo');
+        const modoGuardado = localStorage.getItem("modo");
 
-        if (modoGuardado === 'oscuro') {
-          document.body.classList.add('modo_oscuro');
+        if (modoGuardado === "oscuro") {
+          document.body.classList.add("modo_oscuro");
         }
 
-        botonModo.addEventListener('click', () => {
-          document.body.classList.toggle('modo_oscuro');
+        botonModo.addEventListener("click", () => {
+          document.body.classList.toggle("modo_oscuro");
 
-          if (document.body.classList.contains('modo_oscuro')) {
-            localStorage.setItem('modo', 'oscuro');
+          if (document.body.classList.contains("modo_oscuro")) {
+            localStorage.setItem("modo", "oscuro");
           } else {
-            localStorage.setItem('modo', 'claro');
+            localStorage.setItem("modo", "claro");
           }
 
         });
